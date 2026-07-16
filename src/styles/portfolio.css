@@ -466,3 +466,43 @@
     right: 20px;
   }
 }
+
+/* Search results notice styles */
+.portfolio-search-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f6f2;
+  border: 1px solid var(--line);
+  padding: 14px 24px;
+  margin-bottom: 30px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.portfolio-search-notice strong {
+  color: var(--ink);
+}
+
+.portfolio-search-clear {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  padding: 6px 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.portfolio-search-clear:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+

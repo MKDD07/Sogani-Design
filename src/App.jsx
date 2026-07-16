@@ -23,12 +23,23 @@ export default function App() {
   const lastScrollY = useRef(0)
   const [loading, setLoading] = useState(!window.__soganiLoaded)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
 
   // Scroll to top and close mobile menu on route change
   useEffect(() => {
     window.scrollTo(0, 0)
     setMobileMenuOpen(false)
+    setSearchQuery('')
   }, [pathname])
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate(`/portfolio?q=${encodeURIComponent(searchQuery.trim())}`)
+      setMobileMenuOpen(false)
+    }
+  }
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -163,6 +174,28 @@ export default function App() {
 
 
       <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'is-open' : ''}`}>
+        <button className="mobile-nav-close-btn" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+          <i className="fa-solid fa-xmark"></i> Close
+        </button>
+
+        <form onSubmit={handleSearchSubmit} className="mobile-nav-search-form">
+          <div className="mobile-nav-search-wrapper">
+            <i className="fa-solid fa-magnifying-glass mobile-nav-search-icon"></i>
+            <input 
+              type="text" 
+              placeholder="SEARCH DESIGNS..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="mobile-nav-search-input"
+            />
+            {searchQuery && (
+              <button type="button" className="mobile-nav-search-clear" onClick={() => setSearchQuery('')} aria-label="Clear search">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            )}
+          </div>
+        </form>
+
         <nav className="mobile-nav-links">
           <Link to="/" className={`mobile-nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
           <Link to="/about" className={`mobile-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>

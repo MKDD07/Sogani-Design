@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom'
 import PageHero from '../components/PageHero.jsx'
 import useReveal from '../hooks/useReveal.js'
 import { PORTFOLIO, CATEGORIES } from '../data/portfolio.js'
@@ -45,10 +45,21 @@ export default function Portfolio() {
   const overlayRef  = useRef(null)
   const swiperRef   = useRef(null)
 
+  const [searchParams] = useSearchParams()
+  const q = searchParams.get('q') || ''
+
   const items = useMemo(() => {
-    if (active === 'All') return PORTFOLIO
-    return PORTFOLIO.filter(p => p.category === active)
-  }, [active])
+    let filtered = active === 'All' ? PORTFOLIO : PORTFOLIO.filter(p => p.category === active)
+    if (q) {
+      const searchLower = q.toLowerCase()
+      filtered = filtered.filter(p => 
+        p.name.toLowerCase().includes(searchLower) ||
+        (p.tag && p.tag.toLowerCase().includes(searchLower)) ||
+        (p.category && p.category.toLowerCase().includes(searchLower))
+      )
+    }
+    return filtered
+  }, [active, q])
 
   useReveal('.reveal', [active])
 
@@ -139,6 +150,26 @@ export default function Portfolio() {
             ))}
             <span className="portfolio-filter__count">{items.length} works</span>
           </div>
+
+          {q && (
+            <div className="portfolio-search-notice reveal">
+              <span>Showing results for "<strong>{q}</strong>"</span>
+              <button 
+                className="portfolio-search-clear"
+                onClick={() => navigate(active === 'All' ? '/portfolio' : `/portfolio/${active.toLowerCase()}`)}
+              >
+                Clear <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          )}
+
+          {items.length === 0 && (
+            <div className="portfolio-empty reveal" style={{ textAlign: 'center', padding: '80px 0' }}>
+              <i className="fa-solid fa-magnifying-glass" style={{ fontSize: '28px', color: 'var(--muted-2)', marginBottom: '16px', display: 'block' }}></i>
+              <h3 style={{ fontFamily: 'var(--serif)', fontSize: '22px', color: 'var(--ink)', marginBottom: '8px', fontWeight: '400' }}>No designs found</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '14px' }}>We couldn't find any portfolio items matching your search query.</p>
+            </div>
+          )}
 
           {/* Row-based list */}
           <div className="portfolio-list-wrapper">

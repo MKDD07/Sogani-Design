@@ -214,13 +214,16 @@ export default function Home() {
     /* Counter animation */
     document.querySelectorAll('.stat-num').forEach(el => {
       const final = parseFloat(el.dataset.val)
-      gsap.from({ val:0 }, {
+      const countObj = { val: 0 }
+      gsap.to(countObj, {
         val: final,
         duration: 1.6,
         ease: 'power2.out',
-        snap: { val:1 },
-        scrollTrigger: { trigger:el, start:'top 82%', once:true },
-        onUpdate: function(){ el.textContent = Math.round(this.targets()[0].val) + '+' }
+        snap: { val: 1 },
+        scrollTrigger: { trigger: el, start: 'top 82%', once: true },
+        onUpdate: function() {
+          el.textContent = Math.round(countObj.val) + '+'
+        }
       })
     })
 
