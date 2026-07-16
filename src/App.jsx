@@ -35,10 +35,17 @@ export default function App() {
       return
     }
 
+    // Lock scroll immediately on initial load
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+
     const tl = gsap.timeline({
       onComplete: () => {
         window.__soganiLoaded = true
         setLoading(false)
+        document.body.style.overflow = ''
+        document.documentElement.style.overflow = ''
+        if (window.lenis) window.lenis.start()
       }
     })
 
@@ -53,7 +60,11 @@ export default function App() {
         delay: 0.2,
       })
 
-    return () => tl.kill()
+    return () => {
+      tl.kill()
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
   }, [])
 
   useEffect(() => {
@@ -71,6 +82,11 @@ export default function App() {
 
     lenis.on('scroll', ScrollTrigger.update)
     window.lenis = lenis
+
+    // If loading is active, stop Lenis scrolling initially
+    if (!window.__soganiLoaded) {
+      lenis.stop()
+    }
 
     const updateTicker = (time) => {
       lenis.raf(time * 1000)
