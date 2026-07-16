@@ -1,0 +1,12 @@
+# robots.txt for https://sogani.design/
+# Allow all search engine crawlers to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /policies
+
+# Host
+Host: https://sogani.design
+
+# Sitemap URL
+Sitemap: https://sogani.design/sitemap.xml

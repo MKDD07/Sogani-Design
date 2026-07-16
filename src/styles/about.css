@@ -1,0 +1,316 @@
+/* ════════════════════════════════════════════════════════════
+   ABOUT PAGE — Premium editorial layout with GSAP animations
+════════════════════════════════════════════════════════════ */
+
+/* Hero */
+.about-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(140px,16vh,200px) 0 clamp(60px,8vh,100px);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-hero .eyebrow { margin-bottom: 20px; }
+
+.about-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 100px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.about-hero__sub {
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ════════════════════════
+   BRAND STORY
+════════════════════════ */
+.about-story {
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-story__grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+
+.about-story__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.about-story__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+
+.about-story__lead {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.about-story__text p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Editorial Drop Cap (Old book style) */
+.drop-cap::first-letter {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 5vw, 4.8rem);
+  line-height: 0.85;
+  float: left;
+  margin-top: 6px;
+  margin-right: 12px;
+  color: var(--accent);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+  .about-story__grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-story__body { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ════════════════════════
+   FOUNDERS
+════════════════════════ */
+.about-founders {
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-founders__head {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.about-founders__head h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.12;
+}
+
+/* Founder card */
+.founder-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+  padding-bottom: clamp(60px, 8vw, 100px);
+  margin-bottom: clamp(60px, 8vw, 100px);
+  border-bottom: 1px solid var(--line);
+}
+
+.founder-card:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.founder-card--reverse {
+  direction: rtl;
+}
+
+.founder-card--reverse > * {
+  direction: ltr;
+}
+
+.founder-img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f5f4f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-img-placeholder {
+  font-family: var(--serif);
+  font-size: clamp(48px, 6vw, 80px);
+  color: var(--line-strong);
+  letter-spacing: -0.02em;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.founder-info {
+  padding: clamp(16px, 2vw, 40px) 0;
+}
+
+.founder-name {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.founder-role {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: clamp(20px, 3vw, 32px);
+  display: block;
+}
+
+.founder-bio p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.founder-bio a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.founder-bio a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .founder-card,
+  .founder-card--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 32px;
+  }
+}
+
+/* ════════════════════════
+   AWARDS
+════════════════════════ */
+.about-awards {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: #faf9f7;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-awards__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.about-awards__head h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.12;
+}
+
+.award-list {
+  list-style: none;
+}
+
+.award-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.award-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.award-year {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.award-title {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .award-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ════════════════════════
+   SPEAKING & EXHIBITIONS
+════════════════════════ */
+.about-events {
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-events__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+}
+
+.events-col h3 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  color: var(--ink);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.event-list {
+  list-style: none;
+}
+
+.event-list li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.3s;
+}
+
+.event-list li:hover {
+  color: var(--ink);
+}
+
+.event-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 768px) {
+  .about-events__grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

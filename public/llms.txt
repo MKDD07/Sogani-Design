@@ -1,0 +1,17 @@
+# SOGANI | Bespoke Light Installations & Sculptural Art
+
+> SOGANI is an award-winning design studio specializing in bespoke light installations, modern chandeliers, and architectural metal sculptures designed by Vibhor Sogani.
+
+## Core Pages
+- [Home Page](https://sogani.design/) - Shrinking typography hero, pill-shaped portrait image reveal, horizontal product gallery, statistics counters, and brand highlights.
+- [About the Studio](https://sogani.design/about) - The story of the brand, founders Vibhor Sogani (NID industrial designer) and Navdeep Sogani, design awards, and global exhibitions.
+- [Bespoke Portfolio](https://sogani.design/portfolio) - Curated catalog of sculptural lighting installations categorized by typology: Pendant, Installation, Wall, Floor, and Table.
+- [Studio News](https://sogani.design/news) - Press releases, exhibitions (ID Delhi, Light + Building Frankfurt, Amsterdam Light Festival), and design awards updates.
+- [Media Coverage](https://sogani.design/media) - Editorial reviews, book features, and publications (Elle Decor, Architectural Digest, A1 Lighting UK, designboom).
+- [Commission / Contact](https://sogani.design/contact) - Starting commissions, scheduling private studio viewings, workshop address in Gurgaon, India.
+- [Studio Guidelines](https://sogani.design/policies) - Custom order terms, warranties, and material care guides for steel, copper, and brass.
+
+## Design Philosophy
+- **Art meets Precision**: Fusing innovative materials (stainless steel, copper, glass) with state-of-the-art technology to create customized sculptural installations.
+- **Tailored Lighting**: Dimensions, material finishes, and light temperatures are custom-engineered for specific residential, commercial, or public spaces.
+- **Gurgaon Workshop**: Design, prototyping, engineering, and master hand-finishing are conducted in-house by expert Indian artisans.

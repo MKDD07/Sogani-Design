@@ -1,0 +1,249 @@
+.press-section {
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 32px 20px;
+  background: #faf9f6;
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #1a1a1a;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #8a8a8a;
+    margin: 0 0 24px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+  }
+}
+
+.press-card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ececec;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 250ms ease, border-color 250ms ease;
+  opacity: 0;
+
+  &--static {
+    cursor: default;
+  }
+
+  &:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    border-color: #d8d0c4;
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f1f0ec;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 400ms ease;
+
+    .press-card:hover & {
+      transform: scale(1.06);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 18, 15, 0);
+    transition: background-color 250ms ease;
+
+    .press-card:hover & {
+      background-color: rgba(20, 18, 15, 0.35);
+    }
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 220ms ease, transform 220ms ease;
+
+    .press-card:hover & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__body {
+    padding: 12px 14px 14px;
+  }
+
+  &__item-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+    color: #1a1a1a;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: #9a9a9a;
+    margin: 6px 0 0;
+  }
+}
+
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(2px);
+  padding: 24px;
+  opacity: 0;
+
+  &__panel {
+    width: min(900px, 100%);
+    height: min(85vh, 900px);
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-bottom: 1px solid #eee;
+    gap: 12px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: #999;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #555;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e2e2;
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  &__body {
+    flex: 1;
+    position: relative;
+    background: #f4f3f0;
+  }
+
+  &__loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #999;
+    gap: 8px;
+  }
+
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ddd;
+    border-top-color: #999;
+    border-radius: 50%;
+    animation: pdf-spin 0.8s linear infinite;
+  }
+
+  &__frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+
+    &--loaded {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes pdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
