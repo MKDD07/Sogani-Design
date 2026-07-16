@@ -301,6 +301,8 @@
 .overlay-swiper {
   width: 100%;
   height: 72vh;
+  padding-bottom: 40px;
+  box-sizing: content-box;
 }
 
 .overlay-swiper .swiper-slide {
@@ -323,29 +325,97 @@
   opacity: 1;
 }
 
-/* Swiper navigation arrows */
+/* Swiper navigation arrows: matching news editorial style */
 .overlay-swiper .swiper-button-next,
 .overlay-swiper .swiper-button-prev {
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
   background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  color: #111 !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-.overlay-swiper .swiper-button-next::after,
-.overlay-swiper .swiper-button-prev::after {
-  font-size: 14px !important;
-  font-weight: 700;
+  border: 1px solid var(--ink);
+  top: auto;
+  bottom: 0;
+  transform: none;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: background 0.25s ease, color 0.25s ease;
+  overflow: hidden;
+  box-shadow: none;
 }
 
-/* Swiper pagination dots */
-.overlay-swiper .swiper-pagination-bullet {
-  background: rgba(0,0,0,0.25) !important;
+/* Hide Swiper's standard SVGs */
+.overlay-swiper .swiper-button-next svg,
+.overlay-swiper .swiper-button-prev svg {
+  display: none !important;
 }
-.overlay-swiper .swiper-pagination-bullet-active {
-  background: var(--accent) !important;
+
+.overlay-swiper .swiper-button-prev {
+  left: auto;
+  right: 37px;
+}
+
+.overlay-swiper .swiper-button-next {
+  right: 0;
+  left: auto;
+}
+
+.overlay-swiper .swiper-button-prev::after {
+  content: '←' !important;
+  font-family: var(--sans) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  transition: transform 0.25s ease;
+}
+
+.overlay-swiper .swiper-button-next::after {
+  content: '→' !important;
+  font-family: var(--sans) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  transition: transform 0.25s ease;
+}
+
+.overlay-swiper .swiper-button-next:hover,
+.overlay-swiper .swiper-button-prev:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.overlay-swiper .swiper-button-prev:hover::after {
+  transform: translateX(-2px);
+}
+
+.overlay-swiper .swiper-button-next:hover::after {
+  transform: translateX(2px);
+}
+
+/* Redesign Swiper pagination bullets to horizontal lines */
+.overlay-swiper .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 16px !important;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.overlay-swiper .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+  background: var(--muted-2);
+  opacity: 0.4;
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.overlay-swiper .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+  background: var(--accent);
+  opacity: 1;
+  width: 40px;
 }
 
 /* ─── SIDEBAR REVEAL (initial hidden state — GSAP reveals) ─── */

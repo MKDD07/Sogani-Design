@@ -22,11 +22,26 @@ export default function App() {
   const [isHidden, setIsHidden] = useState(false)
   const lastScrollY = useRef(0)
   const [loading, setLoading] = useState(!window.__soganiLoaded)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  // Scroll to top on route change
+  // Scroll to top and close mobile menu on route change
   useEffect(() => {
     window.scrollTo(0, 0)
+    setMobileMenuOpen(false)
   }, [pathname])
+
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      if (window.lenis) window.lenis.stop()
+    } else if (!loading) {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      if (window.lenis) window.lenis.start()
+    }
+  }, [mobileMenuOpen, loading])
 
   // Global preloader timeline - runs once per site entry
   useEffect(() => {
@@ -147,12 +162,33 @@ export default function App() {
 
 
 
-      <header className={headerClass}>
+      <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'is-open' : ''}`}>
+        <nav className="mobile-nav-links">
+          <Link to="/" className={`mobile-nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+          <Link to="/about" className={`mobile-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
+          <Link to="/portfolio" className={`mobile-nav-link ${pathname.startsWith('/portfolio') || pathname.startsWith('/work') ? 'active' : ''}`}>Portfolio</Link>
+          <Link to="/news" className={`mobile-nav-link ${pathname === '/news' ? 'active' : ''}`}>News</Link>
+          <Link to="/media" className={`mobile-nav-link ${pathname === '/media' ? 'active' : ''}`}>Media</Link>
+          <Link to="/contact" className={`mobile-nav-link ${pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
+        </nav>
+        <div className="mobile-nav-footer">
+          <p className="mobile-nav-contact-title">Commission Inquiries</p>
+          <a href="mailto:studio@vibhorsogani.com" className="mobile-nav-email">studio@vibhorsogani.com</a>
+          <div className="mobile-nav-socials">
+            <a href="#linkedin" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
+            <a href="#instagram" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+            <a href="#twitter" aria-label="Twitter"><i className="fa-brands fa-x-twitter" /></a>
+          </div>
+        </div>
+      </div>
+
+      <header className={`${headerClass} ${mobileMenuOpen ? 'header--mobile-open' : ''}`}>
         <div className="wrap app-header__inner">
           <Link to="/" className="logo">
             <img src="/assets/logo/logo-white.png" alt="SOGANI" className="logo-img logo-white" />
             <img src="/assets/logo/logo-original.png" alt="SOGANI" className="logo-img logo-dark" />
           </Link>
+          
           <nav className="nav">
             <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
             <Link to="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
@@ -161,6 +197,16 @@ export default function App() {
             <Link to="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>Media</Link>
             <Link to="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
           </nav>
+
+          <button 
+            className={`mobile-menu-toggle ${mobileMenuOpen ? 'is-active' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </header>
 
