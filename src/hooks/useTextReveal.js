@@ -31,7 +31,7 @@ export default function useTextReveal(selector = '.gsap-text-reveal', deps = [])
           // Wrap words in container spans
           const lineWordsHtml = words.map(word => {
             return `<span class="reveal-word-outer" style="display: inline-block; overflow: hidden; vertical-align: top; margin-right: 0.25em;">` +
-              `<span class="reveal-word-inner" style="display: inline-block; transform: translateY(105%); opacity: 0; will-change: transform, opacity;">${word}</span>` +
+              `<span class="reveal-word-inner" style="display: inline-block; opacity: 0; will-change: transform, opacity;">${word}</span>` +
             `</span>`
           }).join('')
 
@@ -43,18 +43,24 @@ export default function useTextReveal(selector = '.gsap-text-reveal', deps = [])
 
         const wordInners = el.querySelectorAll('.reveal-word-inner')
 
-        const tween = gsap.to(wordInners, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.1,
-          stagger: 0.04,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 88%',
-            toggleActions: 'play none none reverse',
+        const tween = gsap.fromTo(wordInners, 
+          {
+            yPercent: 105,
+            opacity: 0
+          },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 1.1,
+            stagger: 0.04,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            }
           }
-        })
+        )
 
         if (tween.scrollTrigger) {
           triggers.push(tween.scrollTrigger)
