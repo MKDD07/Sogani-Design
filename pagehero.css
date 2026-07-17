@@ -1,6 +1,12 @@
 .page-hero{
-  padding:170px 0 80px;
+  padding:60px 0 80px;
   border-bottom:1px solid var(--line);
+}
+@media (max-width: 768px)
+{
+  .page-hero{
+  padding:20px 0 40px;
+  }
 }
 .page-hero__crumb{
   font-size:11.5px;
