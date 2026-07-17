@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PageHero from '../components/PageHero.jsx'
 import useReveal from '../hooks/useReveal.js'
 import useDocumentMetadata from '../hooks/useDocumentMetadata.js'
+import useTextReveal from '../hooks/useTextReveal.js'
 
 const POLICIES = [
   {
@@ -69,6 +70,7 @@ export default function Policy() {
 
   useReveal('.reveal')
   const [activeTab, setActiveTab] = useState('bespoke')
+  useTextReveal('.policy-title-header', [activeTab])
 
   return (
     <>
@@ -104,7 +106,7 @@ export default function Policy() {
                 if (p.id !== activeTab) return null
                 return (
                   <div key={p.id} className="policy-content-block">
-                    <h2 className="policy-title-header">{p.title}</h2>
+                    <h2 className="policy-title-header gsap-text-reveal">{p.title}</h2>
                     <div className="policy-text-wrap">
                       {p.content}
                     </div>

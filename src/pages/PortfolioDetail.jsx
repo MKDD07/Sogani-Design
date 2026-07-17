@@ -35,7 +35,7 @@ export default function PortfolioDetail(){
             <Link to="/portfolio">Portfolio</Link> / {item.category} / {item.name}
           </p>
           <div className="work__title-row reveal">
-            <h1>{item.name}</h1>
+            <h1 className="gsap-text-reveal">{item.name}</h1>
             {item.tag && <span className="tag work__award">{item.tag}</span>}
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function PortfolioDetail(){
       <section className="section related">
         <div className="wrap">
           <div className="section-head reveal">
-            <h2>More in {item.category}</h2>
+            <h2 className="gsap-text-reveal">More in {item.category}</h2>
             <p>Continue exploring the studio's repository.</p>
           </div>
           <div className="related__grid">

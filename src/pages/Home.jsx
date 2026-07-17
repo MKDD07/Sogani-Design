@@ -151,12 +151,6 @@ export default function Home() {
         }
       )
 
-      gsap.fromTo(s3heading,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: s3, start: 'top 65%', toggleActions: 'play none none reverse' }
-        }
-      )
 
       gsap.fromTo(s3accent,
         { width: 0 },
@@ -293,7 +287,7 @@ export default function Home() {
           <div className="founder-intro-grid">
             <div className="founder-intro-left">
               <span className="eyebrow reveal-y">The Visionary</span>
-              <h2 className="founder-intro-name reveal-y">Vibhor<br/>Sogani</h2>
+              <h2 className="founder-intro-name gsap-text-reveal">Vibhor<br/>Sogani</h2>
               <span className="founder-intro-role reveal-y">Founder Director</span>
             </div>
             <div className="founder-intro-right">
@@ -335,7 +329,7 @@ export default function Home() {
         <div className="hs2-track">
           <div className="hs2-intro">
             <p className="eyebrow" style={{color:'var(--accent)'}}></p>
-            <h2>Selected<br/>Works</h2>
+            <h2 className="gsap-text-reveal">Selected<br/>Works</h2>
             <p>Scroll to explore →</p>
           </div>
           {HSCROLL_IMGS.map((item, i) => (
@@ -366,10 +360,7 @@ export default function Home() {
           </div>
           <div className="s3-col-text">
             <span className="eyebrow">The Maker</span>
-            <h2 className="s3-heading">
-              <span className="s3-text-line">The Art of</span>
-              <span className="s3-text-line">Light & Form</span>
-            </h2>
+            <h2 className="s3-heading gsap-text-reveal">The Art of<br/>Light & Form</h2>
             <div className="s3-accent-line" />
             <p className="s3-bio">
               With over three decades of artistic practice, Vibhor Sogani transforms
@@ -392,7 +383,7 @@ export default function Home() {
         </div>
         <div className="banner-content">
           <span className="eyebrow">Artisanal Excellence</span>
-          <h2>Where Craft<br/>Meets Light</h2>
+          <h2 className="gsap-text-reveal">Where Craft<br/>Meets Light</h2>
           <p>
             Every piece begins as raw material — hand-beaten, woven, and
             patinated by master artisans in our New Delhi atelier.
@@ -410,7 +401,7 @@ export default function Home() {
               <span className="eyebrow">The Studio</span>
             </div>
             <div className="s4-body">
-              <blockquote className="s4-quote reveal-y">
+              <blockquote className="s4-quote gsap-text-reveal">
                 "Light is material — it has weight,<br/>
                 texture, and the capacity to transform<br/>
                 a room into an experience."
@@ -470,7 +461,7 @@ export default function Home() {
         </div>
         <div className="banner-content">
           <span className="eyebrow">Global Installations</span>
-          <h2>Light Without<br/>Borders</h2>
+          <h2 className="gsap-text-reveal">Light Without<br/>Borders</h2>
           <p>
             From Mumbai penthouses to London hotels — our installations
             illuminate spaces across 12+ countries worldwide.
@@ -501,7 +492,7 @@ export default function Home() {
         <div className="wrap">
           <div className="s7-head reveal-y">
             <span className="eyebrow">How we work</span>
-            <h2>A commission,<br/>from brief to beam.</h2>
+            <h2 className="gsap-text-reveal">A commission,<br/>from brief to beam.</h2>
           </div>
           <div className="s7-steps">
             {PROCESS.map((step, i) => (
@@ -522,7 +513,7 @@ export default function Home() {
           <div className="newsletter-inner">
             <div className="newsletter-left reveal-y">
               <span className="eyebrow">Stay Illuminated</span>
-              <h2>Join Our<br/>Inner Circle</h2>
+              <h2 className="gsap-text-reveal">Join Our<br/>Inner Circle</h2>
               <p>
                 Be the first to discover new collections, studio stories,
                 and exclusive invitations to private viewings.
@@ -551,7 +542,7 @@ export default function Home() {
         <div className="wrap">
           <p className="eyebrow reveal-y" style={{marginBottom:'32px'}}>Contact</p>
           <div className="cta-line reveal-fade"/>
-          <h2 className="contact-title reveal-y">
+          <h2 className="contact-title gsap-text-reveal">
             Have a space in<br/>mind for light?
           </h2>
           

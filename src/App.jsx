@@ -12,12 +12,17 @@ import Contact from './pages/Contact.jsx'
 import Policy from './pages/Policy.jsx'
 import Media from './pages/Media.jsx'
 import News from './pages/News.jsx'
+import useTextReveal from './hooks/useTextReveal.js'
 import './styles/global.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
   const { pathname } = useLocation()
+  
+  // Initialize GSAP text reveals globally on route change
+  useTextReveal('.gsap-text-reveal', [pathname])
+
   const [isSticky, setIsSticky] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const lastScrollY = useRef(0)

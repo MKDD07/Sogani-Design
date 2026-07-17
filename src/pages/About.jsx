@@ -76,8 +76,7 @@ export default function About() {
     const heroTL = gsap.timeline({ delay: 0.2, defaults: { ease: 'power4.out' } })
     heroTL
       .to('.about-hero .eyebrow', { opacity: 1, y: 0, duration: 0.7 })
-      .to('.about-hero h1', { opacity: 1, y: 0, duration: 0.9 }, '-=0.4')
-      .to('.about-hero__sub', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
+      .to('.about-hero__sub', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
 
     /* Scroll reveals */
     document.querySelectorAll('.abt-reveal').forEach(el => {
@@ -135,7 +134,7 @@ export default function About() {
       <header className="about-hero">
         <div className="wrap">
           <p className="eyebrow abt-reveal">About Sogani Design</p>
-          <h1 className="abt-reveal">Art meets<br/>precision.</h1>
+          <h1 className="abt-reveal gsap-text-reveal">Art meets<br/>precision.</h1>
           <p className="about-hero__sub abt-reveal">
             A signature brand of contemporary light installations — where
             Indian artisanal craft meets cutting-edge design.
@@ -187,7 +186,7 @@ export default function About() {
         <div className="wrap">
           <div className="about-founders__head abt-reveal">
             <span className="eyebrow">The Founders</span>
-            <h2>The Vision Behind<br/>the Light</h2>
+            <h2 className="gsap-text-reveal">The Vision Behind<br/>the Light</h2>
           </div>
 
           {/* Vibhor Sogani */}
@@ -264,9 +263,9 @@ export default function About() {
         <div className="wrap">
           <div className="about-awards__head">
             <div className="abt-reveal">
-              <span className="eyebrow">Recognition</span>
-              <h2>Awards &<br/>Honours</h2>
-            </div>
+            <span className="eyebrow">Recognition</span>
+            <h2 className="gsap-text-reveal">Awards &<br/>Honours</h2>
+          </div>
           </div>
           <ul className="award-list">
             {AWARDS.map((a, i) => (
@@ -284,7 +283,7 @@ export default function About() {
         <div className="wrap">
           <div className="abt-reveal" style={{ marginBottom: 'clamp(48px, 6vw, 80px)' }}>
             <span className="eyebrow">Global Presence</span>
-            <h2 style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.12 }}>
+            <h2 className="gsap-text-reveal" style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.12 }}>
               Events &<br/>Exhibitions
             </h2>
           </div>
