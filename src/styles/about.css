@@ -8,7 +8,7 @@
   min-height: 60vh;
   display: flex;
   align-items: flex-end;
-  padding: clamp(140px,16vh,200px) 0 clamp(60px,8vh,100px);
+  padding: clamp(40px,16vh,150px) 0 clamp(60px,8vh,100px);
   border-bottom: 1px solid var(--line);
 }
 

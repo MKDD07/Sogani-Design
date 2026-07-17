@@ -6,7 +6,6 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import Home from './pages/Home.jsx'
 import Portfolio from './pages/Portfolio.jsx'
-import PortfolioDetail from './pages/PortfolioDetail.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Policy from './pages/Policy.jsx'
@@ -21,7 +20,7 @@ export default function App() {
   const { pathname } = useLocation()
   
   // Initialize GSAP text reveals globally on route change
-  useTextReveal('.gsap-text-reveal', [pathname])
+  useTextReveal('.split-text-reveal', [pathname])
 
   const [isSticky, setIsSticky] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
@@ -204,7 +203,7 @@ export default function App() {
         <nav className="mobile-nav-links">
           <Link to="/" className={`mobile-nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
           <Link to="/about" className={`mobile-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
-          <Link to="/portfolio" className={`mobile-nav-link ${pathname.startsWith('/portfolio') || pathname.startsWith('/work') ? 'active' : ''}`}>Portfolio</Link>
+          <Link to="/portfolio" className={`mobile-nav-link ${pathname.startsWith('/portfolio') ? 'active' : ''}`}>Portfolio</Link>
           <Link to="/news" className={`mobile-nav-link ${pathname === '/news' ? 'active' : ''}`}>News</Link>
           <Link to="/media" className={`mobile-nav-link ${pathname === '/media' ? 'active' : ''}`}>Media</Link>
           <Link to="/contact" className={`mobile-nav-link ${pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
@@ -230,7 +229,7 @@ export default function App() {
           <nav className="nav">
             <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
             <Link to="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
-            <Link to="/portfolio" className={`nav-link ${pathname.startsWith('/portfolio') || pathname.startsWith('/work') ? 'active' : ''}`}>Portfolio</Link>
+            <Link to="/portfolio" className={`nav-link ${pathname.startsWith('/portfolio') ? 'active' : ''}`}>Portfolio</Link>
             <Link to="/news" className={`nav-link ${pathname === '/news' ? 'active' : ''}`}>News</Link>
             <Link to="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>Media</Link>
             <Link to="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
@@ -253,7 +252,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:category" element={<Portfolio />} />
-          <Route path="/work/:slug" element={<PortfolioDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/news" element={<News />} />

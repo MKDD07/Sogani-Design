@@ -106,7 +106,7 @@ export default function Policy() {
                 if (p.id !== activeTab) return null
                 return (
                   <div key={p.id} className="policy-content-block">
-                    <h2 className="policy-title-header gsap-text-reveal">{p.title}</h2>
+                    <h2 className="policy-title-header split-text-reveal">{p.title}</h2>
                     <div className="policy-text-wrap">
                       {p.content}
                     </div>

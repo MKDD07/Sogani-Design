@@ -2,6 +2,10 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, EffectFade } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
 import '../styles/about.css'
 import useDocumentMetadata from '../hooks/useDocumentMetadata.js'
 
@@ -124,6 +128,21 @@ export default function About() {
       )
     })
 
+    // Parallax effect on all slide images within the about carousel
+    gsap.fromTo('.about-root .contact-slide-wrap img',
+      { yPercent: -15 },
+      {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.about-root .contact-parallax-carousel',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      }
+    )
+
     return () => ScrollTrigger.getAll().forEach(t => t.kill())
   }, [])
 
@@ -134,7 +153,7 @@ export default function About() {
       <header className="about-hero">
         <div className="wrap">
           <p className="eyebrow abt-reveal">About Sogani Design</p>
-          <h1 className="abt-reveal gsap-text-reveal">Art meets<br/>precision.</h1>
+          <h1 className="abt-reveal split-text-reveal">Art meets<br/>precision.</h1>
           <p className="about-hero__sub abt-reveal">
             A signature brand of contemporary light installations — where
             Indian artisanal craft meets cutting-edge design.
@@ -181,12 +200,40 @@ export default function About() {
         </div>
       </section>
 
+      {/* ══════════ PARALLAX CAROUSEL ══════════ */}
+      <section className="contact-parallax-carousel">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          loop={true}
+          speed={1500}
+          className="contact-swiper"
+        >
+          <SwiperSlide>
+            <div className="contact-slide-wrap">
+              <img src="/assets/banner/banner-001.png" alt="Sogani Installation 1" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="contact-slide-wrap">
+              <img src="/assets/banner/banner-002.png" alt="Sogani Installation 2" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="contact-slide-wrap">
+              <img src="/assets/banner/banner-003.png" alt="Sogani Installation 3" />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </section>
+
       {/* ══════════ FOUNDERS ══════════ */}
       <section className="about-founders">
         <div className="wrap">
           <div className="about-founders__head abt-reveal">
             <span className="eyebrow">The Founders</span>
-            <h2 className="gsap-text-reveal">The Vision Behind<br/>the Light</h2>
+            <h2 className="split-text-reveal">The Vision Behind<br/>the Light</h2>
           </div>
 
           {/* Vibhor Sogani */}
@@ -264,7 +311,7 @@ export default function About() {
           <div className="about-awards__head">
             <div className="abt-reveal">
             <span className="eyebrow">Recognition</span>
-            <h2 className="gsap-text-reveal">Awards &<br/>Honours</h2>
+            <h2 className="split-text-reveal">Awards &<br/>Honours</h2>
           </div>
           </div>
           <ul className="award-list">
@@ -283,7 +330,7 @@ export default function About() {
         <div className="wrap">
           <div className="abt-reveal" style={{ marginBottom: 'clamp(48px, 6vw, 80px)' }}>
             <span className="eyebrow">Global Presence</span>
-            <h2 className="gsap-text-reveal" style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.12 }}>
+            <h2 className="split-text-reveal" style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.12 }}>
               Events &<br/>Exhibitions
             </h2>
           </div>

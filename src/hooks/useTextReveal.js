@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function useTextReveal(selector = '.gsap-text-reveal', deps = []) {
+export default function useTextReveal(selector = '.split-text-reveal', deps = []) {
   useEffect(() => {
     // A small timeout ensures React finishes painting the DOM
     const timer = setTimeout(() => {
@@ -22,45 +22,45 @@ export default function useTextReveal(selector = '.gsap-text-reveal', deps = [])
         const lines = htmlContent.split(/<br\s*\/?>/i)
         
         const newHtml = lines.map(line => {
-          const trimmedLine = line.trim()
-          if (!trimmedLine) return ''
+          const tempDiv = document.createElement('div')
+          tempDiv.innerHTML = line.trim()
+          const decodedText = tempDiv.textContent || tempDiv.innerText || ''
           
-          // Split the line into words
-          const words = trimmedLine.split(/\s+/)
+          if (!decodedText.trim()) return ''
           
-          // Wrap words in container spans
+          const words = decodedText.split(/\s+/)
+          
           const lineWordsHtml = words.map(word => {
-            return `<span class="reveal-word-outer" style="display: inline-block; overflow: hidden; vertical-align: top; margin-right: 0.25em;">` +
-              `<span class="reveal-word-inner" style="display: inline-block; opacity: 0; will-change: transform, opacity;">${word}</span>` +
-            `</span>`
+            const characters = Array.from(word)
+            const charsHtml = characters.map(char => {
+              return `<span class="reveal-char" style="display: inline-block; will-change: transform, opacity;">${char}</span>`
+            }).join('')
+            
+            return `<span class="reveal-word-outer" style="display: inline-block; white-space: nowrap; margin-right: 0.25em;">${charsHtml}</span>`
           }).join('')
 
-          return `<span class="reveal-line" style="display: block; overflow: hidden; white-space: nowrap; line-height: 1.15;">${lineWordsHtml}</span>`
+          return `<span class="reveal-line" style="display: block; line-height: 1.15;">${lineWordsHtml}</span>`
         }).join('')
 
         el.innerHTML = newHtml
         el.dataset.splitDone = 'true'
 
-        const wordInners = el.querySelectorAll('.reveal-word-inner')
+        const chars = el.querySelectorAll('.reveal-char')
 
-        const tween = gsap.fromTo(wordInners, 
-          {
-            yPercent: 105,
-            opacity: 0
-          },
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 1.1,
-            stagger: 0.04,
-            ease: 'power4.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            }
+        // Animate each character/letter on scroll as requested by the user
+        const tween = gsap.from(chars, {
+          opacity: 0.1,
+          y: 10,
+          stagger: 0.05,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            end: 'top 50%',
+            scrub: 1,
           }
-        )
+        })
 
         if (tween.scrollTrigger) {
           triggers.push(tween.scrollTrigger)

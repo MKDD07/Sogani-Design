@@ -85,7 +85,7 @@ export default function Contact() {
         <div className="contact-hero-overlay">
           <div className="wrap">
             <span className="eyebrow" style={{ color: '#ffffff', opacity: 0.9 }}>Enquire</span>
-            <h1 className="contact-hero-title gsap-text-reveal">Start a commission.</h1>
+            <h1 className="contact-hero-title split-text-reveal">Start a commission.</h1>
             <p className="contact-hero-sub">
               Connect with our design workshop to discuss custom sizes, materials, and installations.
             </p>
@@ -99,7 +99,7 @@ export default function Contact() {
           <div className="contact-info-panel reveal">
             <div>
               <span className="eyebrow">Direct Contact</span>
-              <h2 className="contact-info-title gsap-text-reveal">The Gurgaon Workshop</h2>
+              <h2 className="contact-info-title split-text-reveal">The Gurgaon Workshop</h2>
               
               <div className="contact-details">
                 <div className="contact-detail-item">

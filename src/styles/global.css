@@ -369,7 +369,7 @@ a {
   height: 130%;
   object-fit: cover;
   position: absolute;
-  top: 0;
+  top: -25px;
   left: 0;
   will-change: transform;
 }
