@@ -263,11 +263,13 @@ export default function App() {
 
       <footer className="app-footer">
         <div className="wrap app-footer__inner">
-          <div className="app-footer__logo">
-            <Link to="/" className="logo">
+          <div className="app-footer__brand">
+            <Link to="/" className="footer-logo">
               <img src="/assets/logo/logo-white.png" alt="SOGANI" className="logo-img" />
             </Link>
-            <p>Bespoke light installations combining Indian artisanal craftsmanship with state-of-the-art optical engineering.</p>
+            <p className="footer-tagline">
+              Fusing master Indian craftsmanship with state-of-the-art optical engineering to create bespoke light installations that redefine architectural spaces.
+            </p>
             <div className="footer-socials">
               <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
               <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
@@ -276,49 +278,58 @@ export default function App() {
             </div>
           </div>
           
-          <div className="footer-col">
-            <h4>Explore</h4>
-            <ul>
+          <div className="footer-nav-col">
+            <h4 className="footer-col-title">Studio</h4>
+            <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/portfolio">Portfolio</Link></li>
               <li><Link to="/about">About Studio</Link></li>
+              <li><Link to="/portfolio">Portfolio</Link></li>
+              <li><Link to="/news">News & Press</Link></li>
+              <li><Link to="/media">Media Gallery</Link></li>
               <li><Link to="/contact">Contact</Link></li>
-              <li><Link to="/policy">Studio Policies</Link></li>
+              <li><Link to="/policy">Policies & Terms</Link></li>
             </ul>
           </div>
 
-          <div className="footer-col">
-            <h4>Categories</h4>
-            <ul>
-              <li><Link to="/portfolio/pendant">Pendants</Link></li>
-              <li><Link to="/portfolio/installation">Installations</Link></li>
-              <li><Link to="/portfolio/wall">Wall lights</Link></li>
+          <div className="footer-nav-col">
+            <h4 className="footer-col-title">Collections</h4>
+            <ul className="footer-links">
+              <li><Link to="/portfolio/pendant">Pendant lights</Link></li>
+              <li><Link to="/portfolio/installation">Light Installations</Link></li>
+              <li><Link to="/portfolio/wall">Wall Sconces</Link></li>
               <li><Link to="/portfolio/floor">Floor lamps</Link></li>
+              <li><Link to="/portfolio/table">Table Sculptures</Link></li>
             </ul>
           </div>
 
-          <div className="footer-col">
-            <h4>Gurgaon Workshop</h4>
-            <div className="footer-contact-info">
-              <p>
-                <strong>Office Address</strong>
-                Villa #100, Tatvam Villas,<br />
-                Sector 48, Sohna Road,<br />
-                Gurgaon - 122018, Haryana, India
-              </p>
-              <p>
-                <strong>Studio (By appointment)</strong>
-                Gurgaon, India
-              </p>
-              <p>
-                <strong>Phone & E-Mail</strong>
-                <a href="tel:+919810950888">+91-9810950888</a><br />
-                <a href="mailto:info@sogani.design">info@sogani.design</a>
-              </p>
+          <div className="footer-nav-col footer-contact-col">
+            <h4 className="footer-col-title">Commissions</h4>
+            <div className="footer-address">
+              <div className="footer-address-block">
+                <span>Gurgaon Workshop</span>
+                <p>Villa #100, Tatvam Villas,<br />Sector 48, Sohna Road,<br />Gurgaon - 122018, Haryana, India</p>
+              </div>
+              <div className="footer-address-block">
+                <span>Private Viewing</span>
+                <p>By appointment only — Gurgaon studio, India.</p>
+              </div>
+              <div className="footer-address-block">
+                <span>Direct Inquiries</span>
+                <p>
+                  <a href="tel:+919810950888" className="footer-contact-link">+91-9810950888</a>
+                  <a href="mailto:info@sogani.design" className="footer-contact-link">info@sogani.design</a>
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="copyright">
+        <div className="footer-wordmark-container">
+          <div className="footer-wordmark">SOGANI</div>
+        </div>
+
+        <div className="footer-bottom-bar">
+          <div className="wrap footer-bottom-inner">
             <span>© {new Date().getFullYear()} SOGANI Design Studio. All rights reserved.</span>
             <span>Handcrafted in India</span>
           </div>

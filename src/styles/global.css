@@ -65,7 +65,7 @@ a {
 /* Utilities */
 .wrap {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 64px);
 }
@@ -235,97 +235,52 @@ a {
 }
 
 .app-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 80px 0 40px;
-  background: #0f0e0d; /* Premium deep black/ink */
-  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: clamp(60px, 8vw, 100px) 0 0;
+  background: #090909; /* Premium ultra-black/obsidian background */
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
 }
 
 .app-footer__inner {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
   align-items: flex-start;
-  gap: clamp(30px, 4vw, 60px);
+  gap: clamp(40px, 5vw, 80px);
   background: transparent;
+  padding-bottom: clamp(60px, 8vw, 100px);
+  position: relative;
+  z-index: 2;
 }
 
-.app-footer__logo {
-  max-width: 100%;
+.app-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.app-footer__logo p {
-  margin-top: 20px;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.55);
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
-.app-footer__logo .logo-img {
+.footer-logo .logo-img {
   max-height: 28px;
   width: auto;
 }
 
-.footer-col h4 {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent); /* Premium gold */
-  margin-bottom: 24px;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col li {
-  margin-bottom: 12px;
-}
-
-.footer-col a {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.3s ease;
-}
-
-.footer-col a:hover {
-  color: #ffffff;
-}
-
-.footer-contact-info {
-  font-size: 13px;
+.footer-tagline {
+  font-size: 13.5px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-contact-info p {
-  margin-bottom: 16px;
-}
-
-.footer-contact-info strong {
-  display: block;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.footer-contact-info a {
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.3s ease;
-}
-
-.footer-contact-info a:hover {
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 28px;
+  max-width: 320px;
 }
 
 .footer-socials {
   display: flex;
   gap: 12px;
-  margin-top: 24px;
 }
 
 .footer-socials a {
@@ -335,28 +290,145 @@ a {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .footer-socials a:hover {
   border-color: var(--accent);
   color: #ffffff;
-  background: rgba(176, 128, 71, 0.15);
+  background: rgba(176, 128, 71, 0.12);
   transform: translateY(-3px);
 }
 
-.copyright {
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent); /* Luxury champagne gold */
+  margin-bottom: 28px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  position: relative;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
   width: 100%;
-  margin-top: 60px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-contact-col {
+  max-width: 360px;
+}
+
+.footer-address {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-address-block span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+.footer-address-block p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-contact-link {
+  display: block;
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--accent) !important;
+}
+
+/* Luxury Wordmark Background */
+.footer-wordmark-container {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  pointer-events: none;
+  padding-bottom: clamp(10px, 3vw, 30px);
+}
+
+.footer-wordmark {
+  font-family: var(--serif);
+  font-size: clamp(80px, 16vw, 240px);
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.02);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 0.28em; /* offset for last letter spacing */
+}
+
+/* Footer Bottom Bar */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 30px 0;
+  background: #060606;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-bottom-inner {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.35);
+  align-items: center;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
 }
 
 /* Reveal Anim Default */
@@ -365,15 +437,15 @@ a {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .app-header {
-    padding: 24px 0;
-  }
-}
 @media (max-width: 1024px) {
   .app-footer__inner {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .app-header {
+    padding: 24px 0;
   }
 }
 @media (max-width: 600px) {
@@ -381,7 +453,7 @@ a {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .copyright {
+  .footer-bottom-inner {
     flex-direction: column;
     gap: 12px;
     align-items: center;

@@ -540,106 +540,87 @@ export default function Home() {
       {/* ══════════ CONTACT / CTA ══════════ */}
       <section className="s-contact">
         <div className="wrap">
-          <p className="eyebrow reveal-y" style={{marginBottom:'32px'}}>Contact</p>
-          <div className="cta-line reveal-fade"/>
-          <h2 className="contact-title split-text-reveal">
-            Have a space in<br/>mind for light?
-          </h2>
+          <p className="eyebrow reveal-y" style={{ marginBottom: '32px' }}>Inquiries</p>
+          <div className="cta-line reveal-fade" />
           
-          <div className="contact-desc reveal-y" style={{ marginBottom: '60px', maxWidth: '600px' }}>
-            <p>
-              We take on residential, hospitality, and public art commissions
-              worldwide. Every piece begins with a conversation.
-            </p>
-            <div style={{ marginTop: '28px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <Link to="/contact" className="btn">
-                Begin a Commission <i className="fa-solid fa-arrow-right"/>
-              </Link>
-              <Link to="/portfolio" className="btn btn-ghost">
-                View Portfolio
-              </Link>
-            </div>
-          </div>
-
-          <div className="contact-cards-grid reveal-y">
-            {/* Card 1: Office */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <i className="fa-solid fa-building" />
-              </div>
-              <h3 className="contact-card__title">Office</h3>
-              <p className="contact-card__text">
-                Villa #100, Tatvam Villas,<br />
-                Sector 48, Sohna Road,<br />
-                Gurgaon-122018<br />
-                Haryana, India
+          <div className="s-contact__grid">
+            {/* Left: Editorial Column */}
+            <div className="s-contact__editorial reveal-y">
+              <h2 className="contact-title split-text-reveal">
+                Have a space in<br />mind for light?
+              </h2>
+              <p className="contact-subtitle">
+                We design and engineer residential, hospitality, and public art commissions worldwide. Every signature installation begins with a conversation.
               </p>
+              <div className="contact-actions">
+                <Link to="/contact" className="btn btn-luxury-gold">
+                  Begin a Commission <i className="fa-solid fa-arrow-right" />
+                </Link>
+                <Link to="/portfolio" className="btn btn-luxury-ghost">
+                  Explore Designs
+                </Link>
+              </div>
             </div>
 
-            {/* Card 2: Studio */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <i className="fa-solid fa-compass-drafting" />
+            {/* Right: Premium Information Rows */}
+            <div className="s-contact__details reveal-y">
+              <div className="s-contact__row">
+                <span className="s-contact__row-num">01</span>
+                <div className="s-contact__row-content">
+                  <h4>Head Office</h4>
+                  <p>Villa #100, Tatvam Villas, Sector 48, Sohna Road, Gurgaon-122018, Haryana, India</p>
+                </div>
               </div>
-              <h3 className="contact-card__title">Studio</h3>
-              <p className="contact-card__text">
-                (By appointment)<br />
-                Gurgaon, India
-              </p>
-            </div>
 
-            {/* Card 3: Phone */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <i className="fa-solid fa-phone" />
+              <div className="s-contact__row">
+                <span className="s-contact__row-num">02</span>
+                <div className="s-contact__row-content">
+                  <h4>Design Studio</h4>
+                  <p>By appointment only — Gurgaon studio, India</p>
+                </div>
               </div>
-              <h3 className="contact-card__title">Phone</h3>
-              <p className="contact-card__text">
-                <a href="tel:+919810950888" className="contact-card__link">+91-9810950888</a>
-              </p>
-            </div>
 
-            {/* Card 4: E-Mail */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <i className="fa-solid fa-envelope" />
+              <div className="s-contact__row">
+                <span className="s-contact__row-num">03</span>
+                <div className="s-contact__row-content">
+                  <h4>Direct Voice</h4>
+                  <p><a href="tel:+919810950888" className="s-contact__link">+91-9810950888</a></p>
+                </div>
               </div>
-              <h3 className="contact-card__title">E-Mail</h3>
-              <p className="contact-card__text">
-                <span className="contact-card__email-label">General:</span><br />
-                <a href="mailto:info@sogani.design" className="contact-card__link">info@sogani.design</a>
-                <br /><br />
-                <span className="contact-card__email-label">Media:</span><br />
-                <a href="mailto:media@sogani.design" className="contact-card__link">media@sogani.design</a>
-              </p>
-            </div>
 
-            {/* Card 5: Follow Us */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <i className="fa-solid fa-share-nodes" />
+              <div className="s-contact__row">
+                <span className="s-contact__row-num">04</span>
+                <div className="s-contact__row-content">
+                  <h4>Electronic Mail</h4>
+                  <p>
+                    General: <a href="mailto:info@sogani.design" className="s-contact__link">info@sogani.design</a><br />
+                    Media: <a href="mailto:media@sogani.design" className="s-contact__link">media@sogani.design</a>
+                  </p>
+                </div>
               </div>
-              <h3 className="contact-card__title">Follow Us</h3>
-              <p className="contact-card__text" style={{ marginBottom: '16px' }}>
-                Keep up with our latest developments.
-              </p>
-              <div className="contact-card__socials">
-                <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
-                <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
-                <a href="https://www.instagram.com/studiovibhorsogani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
-                <a href="https://in.linkedin.com/company/soganibyvibhor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
+
+              <div className="s-contact__row">
+                <span className="s-contact__row-num">05</span>
+                <div className="s-contact__row-content">
+                  <h4>Follow Studio</h4>
+                  <div className="s-contact__socials">
+                    <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
+                    <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
+                    <a href="https://www.instagram.com/studiovibhorsogani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+                    <a href="https://in.linkedin.com/company/soganibyvibhor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="contact-credits reveal-fade" style={{ marginTop: '80px' }}>
-            <span>Sogani Studio © {new Date().getFullYear()}</span>
-            <span>Gurgaon, India</span>
+          <div className="contact-credits reveal-fade" style={{ marginTop: '100px' }}>
+            <span>© {new Date().getFullYear()} SOGANI Design Studio.</span>
+            <span>Villa #100, Tatvam Villas, Gurgaon, India</span>
             <span>info@sogani.design</span>
           </div>
         </div>
       </section>
-
     </div>
   )
 }
