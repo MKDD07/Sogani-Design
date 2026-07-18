@@ -624,9 +624,10 @@ export default function Home() {
                 Keep up with our latest developments.
               </p>
               <div className="contact-card__socials">
-                <a href="#" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
-                <a href="#" aria-label="Pinterest"><i className="fa-brands fa-pinterest-p" /></a>
-                <a href="#" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
+                <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
+                <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
+                <a href="https://www.instagram.com/studiovibhorsogani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+                <a href="https://in.linkedin.com/company/soganibyvibhor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
               </div>
             </div>
           </div>

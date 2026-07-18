@@ -212,9 +212,10 @@ export default function App() {
           <p className="mobile-nav-contact-title">Commission Inquiries</p>
           <a href="mailto:studio@vibhorsogani.com" className="mobile-nav-email">studio@vibhorsogani.com</a>
           <div className="mobile-nav-socials">
-            <a href="#linkedin" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
-            <a href="#instagram" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
-            <a href="#twitter" aria-label="Twitter"><i className="fa-brands fa-x-twitter" /></a>
+            <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
+            <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
+            <a href="https://www.instagram.com/studiovibhorsogani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+            <a href="https://in.linkedin.com/company/soganibyvibhor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
           </div>
         </div>
       </div>
@@ -264,31 +265,59 @@ export default function App() {
         <div className="wrap app-footer__inner">
           <div className="app-footer__logo">
             <Link to="/" className="logo">
-              <img src="/assets/logo/logo-original.png" alt="SOGANI" className="logo-img" />
+              <img src="/assets/logo/logo-white.png" alt="SOGANI" className="logo-img" />
             </Link>
             <p>Bespoke light installations combining Indian artisanal craftsmanship with state-of-the-art optical engineering.</p>
-          </div>
-          <div className="app-footer__links">
-            <div className="footer-col">
-              <h4>Explore</h4>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/portfolio">Portfolio</Link></li>
-                <li><Link to="/about">About Studio</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/policy">Studio Policies</Link></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Categories</h4>
-              <ul>
-                <li><Link to="/portfolio/pendant">Pendants</Link></li>
-                <li><Link to="/portfolio/installation">Installations</Link></li>
-                <li><Link to="/portfolio/wall">Wall lights</Link></li>
-                <li><Link to="/portfolio/floor">Floor lamps</Link></li>
-              </ul>
+            <div className="footer-socials">
+              <a href="https://twitter.com/DesignSogani" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter" /></a>
+              <a href="https://www.facebook.com/StudioVibhorSogani/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
+              <a href="https://www.instagram.com/studiovibhorsogani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
+              <a href="https://in.linkedin.com/company/soganibyvibhor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
             </div>
           </div>
+          
+          <div className="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/portfolio">Portfolio</Link></li>
+              <li><Link to="/about">About Studio</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/policy">Studio Policies</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Categories</h4>
+            <ul>
+              <li><Link to="/portfolio/pendant">Pendants</Link></li>
+              <li><Link to="/portfolio/installation">Installations</Link></li>
+              <li><Link to="/portfolio/wall">Wall lights</Link></li>
+              <li><Link to="/portfolio/floor">Floor lamps</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Gurgaon Workshop</h4>
+            <div className="footer-contact-info">
+              <p>
+                <strong>Office Address</strong>
+                Villa #100, Tatvam Villas,<br />
+                Sector 48, Sohna Road,<br />
+                Gurgaon - 122018, Haryana, India
+              </p>
+              <p>
+                <strong>Studio (By appointment)</strong>
+                Gurgaon, India
+              </p>
+              <p>
+                <strong>Phone & E-Mail</strong>
+                <a href="tel:+919810950888">+91-9810950888</a><br />
+                <a href="mailto:info@sogani.design">info@sogani.design</a>
+              </p>
+            </div>
+          </div>
+
           <div className="copyright">
             <span>© {new Date().getFullYear()} SOGANI Design Studio. All rights reserved.</span>
             <span>Handcrafted in India</span>

@@ -99,42 +99,60 @@ export default function Contact() {
           <div className="contact-info-panel reveal">
             <div>
               <span className="eyebrow">Direct Contact</span>
-              <h2 className="contact-info-title split-text-reveal">The Gurgaon Workshop</h2>
+              <h2 className="contact-info-title split-text-reveal">The Studio</h2>
               
               <div className="contact-details">
                 <div className="contact-detail-item">
-                  <i className="fa-solid fa-location-dot" />
+                  <i className="fa-solid fa-building" />
                   <div>
-                    <h4>Workshop Address</h4>
+                    <h4>Office Address</h4>
                     <p>
-                      Sogani Design Studio<br />
-                      Phase IV, Udyog Vihar,<br />
-                      Sector 18, Gurugram,<br />
-                      Haryana 122015, India
+                      Villa #100, Tatvam Villas,<br />
+                      Sector 48, Sohna Road,<br />
+                      Gurgaon-122018<br />
+                      Haryana, India
                     </p>
                   </div>
                 </div>
 
                 <div className="contact-detail-item">
-                  <i className="fa-solid fa-envelope" />
+                  <i className="fa-solid fa-compass-drafting" />
                   <div>
-                    <h4>Email Us</h4>
-                    <p><a href="mailto:studio@vibhorsogani.com">studio@vibhorsogani.com</a></p>
+                    <h4>Studio</h4>
+                    <p>
+                      (By appointment)<br />
+                      Gurgaon, India
+                    </p>
                   </div>
                 </div>
 
                 <div className="contact-detail-item">
                   <i className="fa-solid fa-phone" />
                   <div>
-                    <h4>Phone Number</h4>
-                    <p><a href="tel:+911244009856">+91 124 400 9856</a></p>
+                    <h4>Phone</h4>
+                    <p><a href="tel:+919810950888">+91-9810950888</a></p>
+                  </div>
+                </div>
+
+                <div className="contact-detail-item">
+                  <i className="fa-solid fa-envelope" />
+                  <div>
+                    <h4>E-Mail</h4>
+                    <p style={{ margin: 0 }}>
+                      General inquiries:<br />
+                      <a href="mailto:info@sogani.design">info@sogani.design</a>
+                    </p>
+                    <p style={{ margin: '8px 0 0 0' }}>
+                      Media inquiries:<br />
+                      <a href="mailto:media@sogani.design">media@sogani.design</a>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="contact-note">
-              <p>* By appointment only. Our standard lead time for customized orders is 8–12 weeks.</p>
+              <p>* Our standard lead time for customized orders is 8–12 weeks.</p>
             </div>
           </div>
 

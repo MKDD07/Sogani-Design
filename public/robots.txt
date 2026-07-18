@@ -1,12 +1,12 @@
-# robots.txt for https://sogani.design/
+# robots.txt for https://teevore.store/
 # Allow all search engine crawlers to crawl the site
 
 User-agent: *
 Allow: /
-Disallow: /policies
+Disallow: /policy
 
 # Host
-Host: https://sogani.design
+Host: https://teevore.store
 
 # Sitemap URL
-Sitemap: https://sogani.design/sitemap.xml
+Sitemap: https://teevore.store/sitemap.xml
